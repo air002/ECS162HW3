@@ -124,31 +124,42 @@ app.get('/error', (req, res) => {
 
 app.get('/post/:id', (req, res) => {
     // TODO: Render post detail page
-    res.render();
+    res.render('posts');
 });
 app.post('/posts', (req, res) => {
     // TODO: Add a new post and redirect to home
+    req.
+    res.render('home', {posts, user});
 });
 app.post('/like/:id', (req, res) => {
     // TODO: Update post likes
+    res.render(like);
 });
 app.get('/profile', isAuthenticated, (req, res) => {
     // TODO: Render profile page
+    res.render('profile');
 });
 app.get('/avatar/:username', (req, res) => {
     // TODO: Serve the avatar image for the user
+    res.render('avatar');
 });
 app.post('/register', (req, res) => {
     // TODO: Register a new user
+    req.registerUser();
 });
 app.post('/login', (req, res) => {
     // TODO: Login a user
+    req.login();
 });
 app.get('/logout', (req, res) => {
     // TODO: Logout the user
+    res.render('home', { posts, user });
 });
 app.post('/delete/:id', isAuthenticated, (req, res) => {
     // TODO: Delete a post if the current user is the owner
+    if(post.username === usernameCurrent) {
+        
+    }
 });
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
