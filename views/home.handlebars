@@ -7,9 +7,12 @@
         <!-- show the create post form when logged in -->
         <section class="post-form">
             <!-- make a header here -->
+            <h2> Chirp About Something! </h2>
             <form action="/posts" method="POST">
                 <!-- title input field name = "title" -->
+                <h4> <input type="text" name="title" placeholder="Make A Title"> </h4>
                 <!-- text area input field name = "content" -->
+                <p> <input class="baux" type="text" name="content" placeholder="Chirp Your Stuff"> </p>
 
                 <div class="form-actions">
                     <button type="button" class="emoji-button" onclick="toggleEmojiPanel()">😀</button>
@@ -19,13 +22,18 @@
 
             <div id="emoji-container" class="emoji-panel" style="display: none;">
                 <!-- input field for the emoji search, use oninput="searchEmojis() -->
+                
                 <!-- a div, id = "emoji-grid" -->
+                <div id="emoji-grid" class="emoji" style="display: none">
+
+                </div>
             </div>
         </section>
     {{/if}}
 
     <section class="posts-list">
         <!-- recent posts -->
+
 
         {{#if posts.length}}
         <ul>
@@ -36,6 +44,7 @@
         </ul>
         {{else}}
             <!-- no posts, oh no, what now? -->
+
         {{/if}}
     </section>
 </section>
@@ -54,12 +63,19 @@
 let allEmojis = [];  // Global list to hold all emojis
 
 function toggleEmojiPanel() {
+    console.log("I worked!");
     const container = document.getElementById('emoji-container');
     container.style.display = container.style.display === 'none' ? 'block' : 'none';
 
 
     if(container.style.display === 'block' && allEmojis.length == 0){
         // go "Fetch" you some emojis and show them off with displayEmojies
+        fetch("/emojis", {
+            method: "GET"
+        })
+        .then(response => response.json())
+        .then(console.log)
+        .catch(console.error)
     }
 }
 
@@ -85,7 +101,7 @@ function searchEmojis() {
     // array.filter takes a predicate
     // use string.includes. 
 
-    const filteredEmojis = allEmojis.filter(...);
+    //const filteredEmojis = allEmojis.filter(...);
     
     displayEmojis(filteredEmojis);
 }

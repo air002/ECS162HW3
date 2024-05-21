@@ -8,10 +8,9 @@
         {{#if loginError}}
             <p style="color: red;">{{loginError}}</p>
         {{/if}}
-        <form action="/login" method="POST">
+        <form id="login-form "action="/login" method="POST">
             <!-- the login form goes here -->
-            <input type="text" class="userLoginInput" placeholder="Enter Your Username">
-                    
+            <input type="text" name="username" placeholder="Enter Your Username">
             <button type="submit">Login</button>
         </form>
     </section>
@@ -24,9 +23,9 @@
         {{#if regError}}
             <p style="color: red;">{{regError}}</p>
         {{/if}}
-        <form action="/register" method="POST">
+        <form id="register-form" action="/register" method="POST">
             <!-- the registration form goes here -->
-            <input type="text" class="userRegisterInput" placeholder="Register A Username">
+            <input type="text" name="username" placeholder="Register A Username">
             <button type="submit">Register</button>
         </form>
     </section>

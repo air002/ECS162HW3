@@ -2,13 +2,20 @@
 <div class="post">
     <div class="post-avatar">
         <!-- the user's avatar -->
+        <!-- img src="generateAvatar(username[0], width, height)" class="user-avatar" -->
     </div>
     <div class="post-content preserve-newlines">
         <!-- the post -->
+        <h4> {{title}} </h4>
+        <p> {{content}} </p>
         <div class="post-status-bar">
             <!-- everything that is shown in the status bar -->
+                
             <!-- Heart = ♥ -->
+            <p> ♥ {{likes}} </p>
+
             <!-- font awesome  trashcan = <i class="fas fa-trash-alt"> </i>-->
+                <i class="fas fa-trash-alt"> </i>
         </div>        
     </div>
 </div>
